@@ -1,0 +1,2214 @@
+PROMPT 01 — COMPLETE IMPLEMENTATION BRIEF
+
+I am completing a frontend developer assessment. I need you to build the actual frontend implementation, not just provide a plan.
+
+The assessment is for a modern e-commerce ORDER TRACKING SCREEN.
+
+The evaluator will judge the visual quality, UX clarity, responsiveness, interactions, and how well the UI handles the required order states.
+
+==================================================
+1. CORE ASSESSMENT REQUIREMENT
+==================================================
+
+Build one polished, modern, professional Order Tracking experience for an e-commerce application.
+
+The existing application currently has these delivery statuses:
+
+- Processing
+- Shipped
+- Out for Delivery
+- Delivered
+
+The problem is that users find the current status difficult to understand.
+
+Redesign the experience so the customer can understand the order situation immediately without having to interpret technical status labels.
+
+The experience must clearly communicate:
+
+- What is happening with the order
+- Where the order currently is in the delivery journey
+- What happened previously
+- What happens next
+- When the customer should expect delivery
+- What the customer can do if something goes wrong
+
+The result should feel like a real production e-commerce application, not a coding exercise or generic dashboard.
+
+==================================================
+2. IMPORTANT — THREE REQUIRED ORDER STATES
+==================================================
+
+The SAME reusable Order Tracking screen must support all THREE of these states.
+
+Do NOT create three unrelated pages.
+
+The layout, components, hierarchy, and visual system should remain consistent while the content, status messaging, timeline state, alerts, and actions adapt intelligently.
+
+--------------------------------------------------
+STATE A — DELAYED ORDER
+--------------------------------------------------
+
+Scenario:
+
+The estimated delivery time has passed or the order is significantly delayed.
+
+The customer should immediately understand:
+
+- The order is delayed
+- The original expected delivery time
+- That the order is still being handled
+- What the customer should do next
+
+Design requirements:
+
+- Clearly distinguish the delayed state from normal delivery
+- Use a prominent but tasteful status/alert treatment
+- Explain the delay in human-friendly language
+- Show the latest known tracking event
+- Show the original estimated delivery date/time
+- Show an updated estimate if appropriate
+- Provide a clear next step
+- Provide a support/contact option
+- Provide a "Report delivery issue" or equivalent action where appropriate
+
+Example UX copy direction:
+
+"Your order is taking a little longer than expected."
+
+"Originally expected Tuesday, Sep 22"
+
+"Updated delivery estimate: Wednesday, Sep 24"
+
+"Latest update: Package is still in transit."
+
+Do not blindly copy this wording if a better UX message can be created.
+
+The state should feel informative and reassuring rather than alarming.
+
+--------------------------------------------------
+STATE B — DELIVERED BUT NOT RECEIVED
+--------------------------------------------------
+
+Scenario:
+
+The system says the order was delivered, but the customer reports that they did not receive it.
+
+This is NOT a normal Delivered state.
+
+The UI must clearly acknowledge the customer's problem.
+
+The screen should communicate:
+
+- System delivery status
+- Delivery date/time
+- That the customer reported not receiving the package
+- Appropriate troubleshooting/next steps
+- A clear support/reporting action
+
+Possible helpful information:
+
+- "Marked delivered"
+- Delivery timestamp
+- Delivery location if mock data is appropriate
+- "Check around your delivery location"
+- "Check with household members/neighbors"
+- "Report a missing package"
+- "Contact support"
+
+Do not make the customer search through the normal timeline to figure out what to do.
+
+The issue/action area should be visually obvious.
+
+--------------------------------------------------
+STATE C — TRACKING NOT AVAILABLE YET
+--------------------------------------------------
+
+Scenario:
+
+The order exists, but tracking information is not available yet.
+
+Do NOT show a blank page.
+
+Do NOT show a broken-looking empty state.
+
+Do NOT show a fake timeline pretending that tracking events exist.
+
+Instead provide a useful, polished waiting state.
+
+Show:
+
+- Order information
+- Product summary
+- Order date
+- Current order preparation/processing status
+- A clear explanation that tracking information is not available yet
+- Expected timeframe for tracking to become available, if appropriate
+- A useful next step
+- Support access
+
+Example UX direction:
+
+"Tracking information isn't available yet."
+
+"Your order has been confirmed and is being prepared. Tracking will appear once your package is handed to the carrier."
+
+Possible action:
+
+"Contact support"
+
+or
+
+"View order details"
+
+The screen should still feel complete and intentional.
+
+==================================================
+3. PRIMARY MOBILE DESIGN
+==================================================
+
+The assessment specifically requires responsive design for approximately:
+
+360px–430px mobile widths.
+
+This is extremely important.
+
+Design MOBILE-FIRST.
+
+The primary experience should look excellent at:
+
+- 360px
+- 375px
+- 390px
+- 414px
+- 430px
+
+Also make the layout work nicely on larger desktop/tablet screens because the evaluator may open the deployed URL on a desktop browser.
+
+Do NOT simply create a desktop layout and shrink it.
+
+The mobile UI should feel intentionally designed for a phone.
+
+Requirements:
+
+- No horizontal scrolling
+- No clipped content
+- No overflowing buttons
+- No broken cards
+- Comfortable touch targets
+- Good spacing
+- Strong typography hierarchy
+- Proper text wrapping
+- Responsive cards
+- Responsive timeline
+- Responsive product information
+- Responsive dialogs/sheets
+- Responsive buttons
+- Responsive state controls
+
+Use appropriate max-width behavior so the mobile experience remains visually focused rather than becoming an unnecessarily wide desktop interface.
+
+==================================================
+4. VISUAL DESIGN DIRECTION
+==================================================
+
+Create a beautiful, premium, modern e-commerce UI.
+
+Design direction:
+
+- Clean
+- Minimal
+- Professional
+- Modern
+- Friendly
+- Trustworthy
+- High-quality
+- Strong visual hierarchy
+- Subtle depth
+- Excellent whitespace
+- Refined typography
+- Tasteful colors
+- Soft borders
+- Subtle shadows
+- Rounded corners
+- Consistent iconography
+
+Avoid:
+
+- Generic Bootstrap-looking UI
+- Excessive gradients
+- Excessive glassmorphism
+- Huge empty spaces
+- Overly colorful dashboards
+- Excessive animations
+- Tiny text
+- Dense information
+- Random decorative elements
+- Unnecessary cards everywhere
+- Poor contrast
+- Excessive rounded pills
+- "AI-generated website" visual patterns
+
+The interface should look like a carefully designed real e-commerce product.
+
+Use a restrained visual system.
+
+A light background with white/near-white content surfaces is acceptable.
+
+Use one strong primary brand/accent color and contextual status colors.
+
+Status colors should communicate meaning:
+
+- Normal/in-progress → primary/accent
+- Completed → success
+- Delayed → warning
+- Delivery issue → error/destructive
+- Waiting/tracking unavailable → neutral/info
+
+Do not rely only on color.
+
+Every important status should have text and/or an icon.
+
+==================================================
+5. PAGE STRUCTURE
+==================================================
+
+Create a strong visual hierarchy similar to a real e-commerce order tracking screen.
+
+Suggested structure:
+
+--------------------------------------------------
+HEADER
+--------------------------------------------------
+
+Mobile-friendly header.
+
+Include:
+
+- Back navigation
+- Page title such as "Track Order"
+- Optional contextual action/menu if useful
+
+Keep the header compact.
+
+--------------------------------------------------
+ORDER SUMMARY
+--------------------------------------------------
+
+Create a polished order summary section.
+
+Include:
+
+- Product thumbnail/image
+- Product name
+- Quantity
+- Variant if appropriate
+- Order ID
+- Order date
+- Total/order amount if appropriate
+
+Example mock product:
+
+"Everyday Essential Sneakers"
+
+"Black / Size 42"
+
+"Qty 1"
+
+Order #ORD-48291
+
+Use realistic mock content.
+
+Do not use lorem ipsum.
+
+--------------------------------------------------
+CURRENT STATUS HERO
+--------------------------------------------------
+
+This should be one of the strongest sections on the screen.
+
+The user should understand the current state within 1–2 seconds.
+
+Include:
+
+- Status icon
+- Human-readable status title
+- Short explanatory description
+- Relevant ETA
+- Supporting information
+- Context-specific alert/message when needed
+
+Examples:
+
+Normal:
+
+"Out for delivery"
+
+"Your package is on its way and should arrive today."
+
+Delayed:
+
+"Delivery delayed"
+
+"Your package is taking longer than expected."
+
+Delivered but not received:
+
+"Marked as delivered"
+
+"But you reported that you didn't receive the package."
+
+Tracking unavailable:
+
+"Tracking not available yet"
+
+"Your order is confirmed. Tracking will appear once the carrier receives your package."
+
+Use strong hierarchy:
+
+Status
+→ explanation
+→ supporting date/time
+
+--------------------------------------------------
+DELIVERY PROGRESS / TIMELINE
+--------------------------------------------------
+
+This is a major assessment requirement.
+
+Create a visually clear delivery timeline.
+
+Stages:
+
+1. Processing
+2. Shipped
+3. Out for Delivery
+4. Delivered
+
+Each stage should have:
+
+- Icon
+- Label
+- Relevant timestamp/event information
+- Visual connection to the next stage
+
+Completed steps should look completed.
+
+Current step should be visually emphasized.
+
+Future steps should look inactive but understandable.
+
+The timeline should make progress obvious at a glance.
+
+Use a strong visual connector between steps.
+
+For mobile, make the timeline easy to scan vertically.
+
+Do not make it tiny or overly compressed.
+
+For the special states:
+
+DELAYED:
+The timeline should show the last known completed/current event and clearly indicate the delay context.
+
+DELIVERED BUT NOT RECEIVED:
+The normal delivery timeline can show Delivered as completed, but the issue section must clearly communicate that the customer reports not receiving the package.
+
+TRACKING NOT AVAILABLE:
+Do not fabricate tracking events.
+Use a meaningful unavailable/waiting visualization instead.
+
+==================================================
+6. ETA / DELIVERY INFORMATION
+==================================================
+
+Clearly display delivery expectations.
+
+Examples:
+
+"Estimated delivery"
+
+"Wednesday, Sep 24"
+
+"Expected by 8:00 PM"
+
+For delayed orders:
+
+"Original estimate"
+"Tuesday, Sep 22"
+
+"Updated estimate"
+"Wednesday, Sep 24"
+
+Make dates easy to scan.
+
+Use semantic visual grouping rather than dumping everything into paragraphs.
+
+==================================================
+7. LATEST UPDATE
+==================================================
+
+Add a concise "Latest update" or equivalent section where useful.
+
+Example:
+
+"Package departed from Dhaka sorting facility"
+
+"Today, 10:42 AM"
+
+This should make the tracking experience feel realistic.
+
+Use realistic mock tracking events.
+
+==================================================
+8. ORDER DETAILS
+==================================================
+
+Provide a meaningful "View order details" interaction.
+
+This MUST work.
+
+Possible implementation:
+
+- Expandable details section
+- Modal
+- Bottom sheet
+- Dialog
+
+Choose the interaction that best fits the mobile-first design.
+
+Include useful information such as:
+
+- Order ID
+- Order date
+- Items
+- Quantity
+- Price
+- Shipping address
+- Payment method
+- Delivery method
+
+Do not make the interaction decorative only.
+
+==================================================
+9. SUPPORT EXPERIENCE
+==================================================
+
+Provide an obvious but tasteful support option.
+
+Examples:
+
+"Need help?"
+
+"Contact support"
+
+"Get help with this delivery"
+
+When clicked, open a meaningful UI interaction such as:
+
+- Bottom sheet
+- Dialog
+- Support panel
+
+Possible options:
+
+- Contact support
+- Chat with support
+- Call support
+- View help information
+
+Because backend integration is not required, these can be mock interactions.
+
+The important thing is that the UI responds naturally.
+
+==================================================
+10. DELIVERY ISSUE EXPERIENCE
+==================================================
+
+For the relevant states, provide a "Report a delivery issue" or equivalent action.
+
+When clicked, show a polished issue-report interaction.
+
+For example:
+
+"What's wrong with your delivery?"
+
+Options:
+
+- Package not received
+- Package damaged
+- Wrong item received
+- Delivery information is incorrect
+
+Include a submit/continue action.
+
+Since backend integration is not required, submitting can show a realistic confirmation state/toast/message.
+
+==================================================
+11. STATE SWITCHER FOR EVALUATION
+==================================================
+
+The evaluator needs to easily inspect all three required states.
+
+Implement a polished DEMO/STATE SWITCHER.
+
+This should allow switching between:
+
+- Delayed
+- Delivered but not received
+- Tracking unavailable
+
+You may also include a normal state such as:
+
+- Out for delivery
+
+The state switcher is primarily a development/evaluation control.
+
+Do NOT make it dominate the customer's normal experience.
+
+Possible approaches:
+
+- Small "Preview state" control
+- Segmented control
+- Dropdown
+- Compact developer/demo toolbar
+
+Make it visually clear but unobtrusive.
+
+When the selected state changes:
+
+- Current status changes
+- Hero content changes
+- Timeline changes appropriately
+- ETA changes
+- Alerts change
+- Actions change
+- Support/report actions change
+- Any relevant supporting content changes
+
+Everything must remain internally consistent.
+
+==================================================
+12. LOADING STATE
+==================================================
+
+Implement a polished loading state.
+
+Use skeleton loaders rather than a generic "Loading..." text-only screen.
+
+Skeleton should represent:
+
+- Header/content
+- Product summary
+- Status section
+- Timeline
+- Supporting content
+
+Keep it visually consistent with the final UI.
+
+==================================================
+13. EMPTY / TRACKING UNAVAILABLE STATE
+==================================================
+
+The "Tracking Not Available Yet" state must NOT look like an error.
+
+It should feel intentional.
+
+Use:
+
+- Helpful illustration/icon
+- Clear headline
+- Explanation
+- Order summary
+- Expected next step
+- Support action
+
+Do not use a giant empty white area.
+
+==================================================
+14. ERROR STATE
+==================================================
+
+Also create a reasonable tracking error state.
+
+For example:
+
+"Something went wrong"
+
+"We couldn't load the latest tracking information."
+
+Actions:
+
+"Try again"
+
+"Contact support"
+
+The retry button should actually work at the UI level, even if it uses mock behavior.
+
+==================================================
+15. INTERACTIONS
+==================================================
+
+Implement real frontend interactions.
+
+At minimum:
+
+- State switching
+- View order details
+- Contact support
+- Report delivery issue
+- Issue submission feedback
+- Retry interaction for error state
+- Any expandable sections
+- Back/navigation interaction where appropriate
+
+Use subtle transitions.
+
+Examples:
+
+- Fade/slide
+- Expand/collapse
+- Button feedback
+- Dialog transitions
+- State transition
+
+Animations should be fast and subtle.
+
+Do NOT over-animate.
+
+Respect prefers-reduced-motion where practical.
+
+==================================================
+16. COMPONENT ARCHITECTURE
+==================================================
+
+Use clean reusable components.
+
+Do NOT put the entire application into one giant component.
+
+Create sensible components such as:
+
+- OrderTrackingPage
+- Header
+- OrderSummary
+- StatusHero
+- DeliveryTimeline
+- TimelineStep
+- LatestUpdate
+- DeliveryEstimate
+- OrderDetails
+- SupportSheet/Dialog
+- DeliveryIssueDialog
+- StateSwitcher
+- LoadingState
+- ErrorState
+
+Use your judgment based on the existing project.
+
+Keep components reasonably sized and readable.
+
+Create reusable data/configuration for the three order states instead of duplicating entire pages.
+
+For example, the state should be represented by structured data/configuration where appropriate.
+
+==================================================
+17. DATA MODEL
+==================================================
+
+Use realistic mock/static data.
+
+Create one order with realistic information.
+
+Example:
+
+Order:
+#ORD-48291
+
+Product:
+Everyday Essential Sneakers
+
+Variant:
+Black / Size 42
+
+Quantity:
+1
+
+Price:
+৳4,990
+
+Order date:
+Sep 20, 2026
+
+Delivery address:
+Dhaka, Bangladesh
+
+Do not overpopulate the UI with unnecessary information.
+
+Use realistic dates and text.
+
+Each state should have appropriate mock data.
+
+==================================================
+18. ICONS
+==================================================
+
+Use a consistent icon library if available/appropriate.
+
+Icons should be:
+
+- Consistent
+- Simple
+- Professional
+- Easy to understand
+
+Do not mix random icon styles.
+
+Do not use emoji as the primary UI icon system.
+
+If using Lucide or another icon library, use it consistently.
+
+==================================================
+19. TYPOGRAPHY
+==================================================
+
+Typography should have clear hierarchy.
+
+Use:
+
+- Strong page title
+- Medium/strong section headings
+- Highly readable body text
+- Small supporting metadata
+- Strong emphasis for status and ETA
+
+Avoid making everything bold.
+
+Ensure text remains readable on 360px screens.
+
+Use appropriate line heights.
+
+==================================================
+20. SPACING
+==================================================
+
+Use a consistent spacing system.
+
+The mobile screen should breathe.
+
+Avoid:
+
+- Huge unnecessary gaps
+- Crowded cards
+- Inconsistent margins
+- Random padding values everywhere
+
+Use consistent vertical rhythm between sections.
+
+==================================================
+21. RESPONSIVE DESIGN
+==================================================
+
+Explicitly test the design mentally and through browser/dev tools at:
+
+360px
+375px
+390px
+414px
+430px
+768px
+1024px
+1440px
+
+At mobile widths:
+
+- Content should fit naturally
+- No horizontal overflow
+- Buttons should not become tiny
+- Cards should stack
+- Timeline should remain readable
+- Dialogs should fit within viewport
+- Product image and information should remain balanced
+- Long status messages should wrap naturally
+
+At larger widths:
+
+Use a centered, controlled content area.
+
+Do NOT stretch the mobile content across the entire desktop screen.
+
+A desktop layout can use a two-column composition where appropriate, but the mobile experience must remain the primary design priority.
+
+==================================================
+22. ACCESSIBILITY
+==================================================
+
+Follow good accessibility practices.
+
+Use:
+
+- Semantic HTML
+- Real buttons
+- Accessible labels
+- Keyboard accessibility
+- Visible focus states
+- Sufficient contrast
+- Meaningful status text
+- aria-labels for icon-only controls where needed
+
+Do not communicate important information using color alone.
+
+==================================================
+23. VISUAL POLISH
+==================================================
+
+Spend significant attention on the final visual quality.
+
+The evaluator should immediately see:
+
+- Strong hierarchy
+- Beautiful spacing
+- Consistent components
+- Professional status visualization
+- Clear timeline
+- High-quality mobile layout
+- Good micro-interactions
+- Cohesive color system
+- Realistic e-commerce content
+
+Add subtle details where they improve the experience:
+
+- Soft shadows
+- Fine borders
+- Status badges
+- Icon containers
+- Small metadata
+- Hover/pressed states
+- Smooth transitions
+- Carefully chosen background surfaces
+
+But maintain restraint.
+
+The design should feel premium, not overloaded.
+
+==================================================
+24. TECHNICAL IMPLEMENTATION
+==================================================
+
+First inspect the existing project.
+
+DO NOT unnecessarily replace the existing framework or project structure.
+
+Determine:
+
+- Framework
+- Package manager
+- Existing dependencies
+- Entry points
+- Styling approach
+- Existing components
+
+Reuse what is already available.
+
+If the project is empty, use a sensible React-based setup.
+
+Backend integration is NOT required.
+
+Mock/static data is completely acceptable.
+
+Do not build an unnecessary backend.
+
+Do not introduce large dependencies unless genuinely useful.
+
+==================================================
+25. CODE QUALITY
+==================================================
+
+Write production-quality frontend code.
+
+Requirements:
+
+- Clean naming
+- Reusable components
+- No unnecessary duplication
+- No massive monolithic component
+- No hardcoded repeated markup when data-driven rendering is appropriate
+- No dead code
+- No unnecessary dependencies
+- No console errors
+- No obvious TypeScript errors
+- No broken imports
+- No placeholder lorem ipsum
+- No unfinished TODO UI
+
+Keep the code easy for a developer to explain during an assessment.
+
+==================================================
+26. FINAL VALIDATION
+==================================================
+
+After implementation:
+
+1. Run the available development/build command.
+2. Run type checking if available.
+3. Run linting if available.
+4. Fix all errors introduced by the implementation.
+5. Check for console errors.
+6. Check responsive behavior.
+7. Verify every required interaction.
+8. Verify all three required assessment states.
+9. Verify loading state.
+10. Verify error state.
+11. Verify tracking-unavailable state.
+12. Verify there is no horizontal overflow.
+13. Verify buttons and dialogs work.
+14. Verify the application starts successfully.
+
+Do not stop after creating the files.
+
+Actually implement and validate the application.
+
+==================================================
+27. IMPORTANT ASSESSMENT CHECKLIST
+==================================================
+
+Before considering the task complete, confirm that the implementation satisfies:
+
+[ ] Modern professional mobile Order Tracking screen
+[ ] Clear visual delivery progress/timeline
+[ ] Current order status clearly visible
+[ ] Estimated delivery date/time
+[ ] Order/product summary
+[ ] Contact support
+[ ] Loading state
+[ ] Error state
+[ ] Tracking unavailable state
+[ ] Delayed order state
+[ ] Delivered but not received state
+[ ] Meaningful next step for delayed order
+[ ] Meaningful support action for delivered-but-not-received
+[ ] Useful non-empty experience when tracking is unavailable
+[ ] View order details interaction
+[ ] Delivery issue interaction
+[ ] Responsive 360–430px mobile design
+[ ] Good desktop behavior
+[ ] Clean spacing
+[ ] Strong typography hierarchy
+[ ] Consistent iconography
+[ ] Accessible controls
+[ ] No horizontal overflow
+[ ] Realistic mock data
+[ ] Reusable component architecture
+[ ] No unnecessary backend
+[ ] No obvious console/build/type errors
+
+==================================================
+28. MOST IMPORTANT DESIGN PRINCIPLE
+==================================================
+
+Do not treat this as a simple "order status page."
+
+Design it as a complete customer experience.
+
+The customer should be able to open the screen and immediately answer:
+
+"What is happening to my order?"
+
+"When will I receive it?"
+
+"Is something wrong?"
+
+"What should I do next?"
+
+"How can I get help?"
+
+The three special states must feel intentionally designed rather than simple variations of a text label.
+
+Prioritize clarity, beauty, responsiveness, and usability.
+
+Do not just satisfy the requirements mechanically.
+
+Make the final result look like a polished production-ready e-commerce mobile experience that could realistically be shipped.
+
+Now inspect the existing project and IMPLEMENT the complete experience.
+Do not only describe what you would do.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PROMPT 02 — VISUAL QA, UX REFINEMENT & PREMIUM POLISH
+
+The functional implementation is complete and the project currently builds, lints, and runs successfully.
+
+Do NOT rebuild the application from scratch.
+
+Do NOT replace the existing architecture.
+
+Do NOT add unnecessary features.
+
+Your task now is to perform a serious visual QA and refinement pass on the existing Order Tracking experience and make it look significantly more polished, premium, professional, and production-ready.
+
+The assessment is primarily a frontend/UI assessment, so visual quality and UX clarity are extremely important.
+
+==================================================
+1. FIRST — INSPECT THE EXISTING IMPLEMENTATION
+==================================================
+
+Before changing anything:
+
+- Inspect the current source files.
+- Inspect the existing component structure.
+- Inspect the state/data configuration.
+- Run the application.
+- Review the actual rendered UI.
+- Check the page at mobile widths around:
+  360px
+  375px
+  390px
+  414px
+  430px
+
+Also inspect it at:
+  768px
+  1024px
+  1440px
+
+Do not make assumptions based only on the source code.
+
+Evaluate the actual visual result.
+
+Keep the existing successful architecture and improve it.
+
+==================================================
+2. OVERALL DESIGN GOAL
+==================================================
+
+The current implementation should feel like a polished, modern e-commerce product.
+
+Aim for the visual quality of a carefully designed production application.
+
+The final result should communicate:
+
+- Trust
+- Clarity
+- Simplicity
+- Modernity
+- Reliability
+- Good information hierarchy
+
+The screen should feel calm and easy to understand.
+
+Avoid making it look like:
+
+- An admin dashboard
+- A generic Tailwind template
+- A component library demo
+- A developer prototype
+- A dense data table
+- An over-designed Dribbble concept
+
+Prioritize practical product design.
+
+==================================================
+3. MOBILE IS THE PRIMARY EXPERIENCE
+==================================================
+
+The most important visual QA target is approximately:
+
+360–430px.
+
+Make the screen look excellent at these widths.
+
+Pay special attention to:
+
+- Horizontal padding
+- Card widths
+- Vertical spacing
+- Heading wrapping
+- Status message wrapping
+- Button widths
+- Timeline width
+- Product image size
+- Icon size
+- ETA layout
+- Bottom sheets
+- Dialogs
+- State switcher
+- Sticky header
+
+There must NEVER be horizontal scrolling.
+
+Do not solve responsiveness simply by shrinking everything.
+
+Instead use intelligent wrapping, stacking, spacing, and layout changes.
+
+==================================================
+4. IMPROVE THE PAGE COMPOSITION
+==================================================
+
+Review the entire page as one composition.
+
+There should be a clear visual hierarchy:
+
+1. Header
+2. Order identity / product summary
+3. Current delivery status
+4. Delivery progress
+5. Latest tracking information
+6. Supporting information
+7. Actions/help
+
+The customer should know the current situation within approximately 1–2 seconds.
+
+The most important information should visually dominate.
+
+Do not give every card equal visual weight.
+
+==================================================
+5. HEADER REFINEMENT
+==================================================
+
+Refine the header.
+
+It should be compact and premium.
+
+Check:
+
+- Back button size
+- Icon alignment
+- Page title alignment
+- Header height
+- Horizontal padding
+- Border/divider treatment
+- Sticky behavior
+
+Do not make the header unnecessarily tall.
+
+Ensure the back button has a comfortable touch target.
+
+Use subtle visual separation from the content rather than a heavy border.
+
+==================================================
+6. ORDER SUMMARY REFINEMENT
+==================================================
+
+The product/order summary should feel like a real e-commerce order card.
+
+Improve:
+
+- Product image presentation
+- Image container size
+- Product name typography
+- Variant/quantity metadata
+- Order ID styling
+- Price hierarchy
+- Card padding
+- Border radius
+- Shadow/border treatment
+
+The product image should not dominate the page.
+
+The product name should be easy to scan.
+
+Secondary information should be visually quieter.
+
+Use consistent spacing between:
+
+Product
+Variant
+Quantity
+Order information
+
+Avoid visual clutter.
+
+==================================================
+7. STATUS HERO — MOST IMPORTANT SECTION
+==================================================
+
+The current status hero is one of the most important components.
+
+Refine it heavily.
+
+The status should immediately answer:
+
+"What is happening with my order?"
+
+Use strong hierarchy:
+
+STATUS LABEL / BADGE
+
+Main status headline
+
+Short human-friendly explanation
+
+ETA / supporting information
+
+Example normal state:
+
+"Out for delivery"
+
+"Your package is on its way and should arrive today."
+
+Example delayed state:
+
+"Delivery delayed"
+
+"Your package is taking longer than expected."
+
+Example delivered-but-not-received:
+
+"Marked as delivered"
+
+"But you reported that you didn't receive the package."
+
+Example unavailable:
+
+"Tracking not available yet"
+
+"Your order is confirmed. Tracking will appear once the carrier receives your package."
+
+Do not make the status hero unnecessarily huge.
+
+It should feel prominent but compact.
+
+==================================================
+8. STATE-SPECIFIC VISUAL LANGUAGE
+==================================================
+
+The four states should be visually distinguishable without creating four completely different designs.
+
+Use a consistent design system.
+
+NORMAL:
+- Primary/accent visual treatment
+- Positive/active feel
+
+DELAYED:
+- Warm warning treatment
+- Clear but not alarming
+- Original ETA vs updated ETA should be extremely easy to understand
+
+DELIVERED BUT NOT RECEIVED:
+- Strong issue treatment
+- Clear problem explanation
+- Primary support/report action
+
+TRACKING NOT AVAILABLE:
+- Neutral/informational treatment
+- Reassuring waiting experience
+- Avoid making it look like an error
+
+Do not rely on color alone.
+
+Use:
+
+- Icons
+- Labels
+- Typography
+- Supporting text
+- Visual containers
+
+==================================================
+9. DELAYED STATE REFINEMENT
+==================================================
+
+The delayed state needs especially strong UX.
+
+Make these visually obvious:
+
+Original estimate
+Updated estimate
+Latest known event
+Reason/context if available
+Next step
+
+The old date can use subtle strikethrough treatment.
+
+The updated date should receive stronger emphasis.
+
+Example hierarchy:
+
+Original estimate
+Tue, Sep 22
+
+Updated estimate
+Wed, Sep 24
+
+Do not make the UI feel like the order has failed.
+
+The tone should be:
+
+"Something changed, here's what happened, and here's what you can do."
+
+==================================================
+10. DELIVERED BUT NOT RECEIVED REFINEMENT
+==================================================
+
+This is an important edge case.
+
+Make the issue obvious immediately.
+
+The customer should not have to read the entire page to understand the problem.
+
+The section should communicate:
+
+"Your order is marked delivered"
+
+AND
+
+"You reported that you did not receive it."
+
+Then provide clear next steps.
+
+The "Report missing package" action should be visually prominent.
+
+The troubleshooting information should be concise.
+
+Avoid overwhelming the user with too many instructions.
+
+==================================================
+11. TRACKING UNAVAILABLE REFINEMENT
+==================================================
+
+This should be an intentional empty/waiting state.
+
+It must NOT look broken.
+
+It must NOT feel unfinished.
+
+Create a tasteful visual treatment around the waiting state.
+
+The customer should understand:
+
+- The order exists
+- The order is being prepared
+- Tracking simply isn't available yet
+- When/why tracking will appear
+- What they can do meanwhile
+
+Keep this state visually balanced.
+
+==================================================
+12. TIMELINE REFINEMENT
+==================================================
+
+The delivery timeline is a major scoring area.
+
+Make it extremely easy to understand.
+
+Stages:
+
+Processing
+Shipped
+Out for Delivery
+Delivered
+
+Visual states:
+
+COMPLETED:
+- Strong completed icon
+- Connected to previous/next progress
+
+CURRENT:
+- Strong emphasis
+- Clearly identifiable
+
+FUTURE:
+- Muted but readable
+
+DELAYED:
+- Special warning treatment where appropriate
+
+The connecting line should clearly communicate progress.
+
+Make sure icons and labels align perfectly.
+
+Use consistent vertical spacing.
+
+Avoid excessive timeline height.
+
+At 360px, the timeline must remain comfortable to read.
+
+==================================================
+13. LATEST UPDATE
+==================================================
+
+Improve the latest update section.
+
+It should feel like a useful tracking event, not another generic card.
+
+Example:
+
+Latest update
+
+Package departed from Dhaka sorting facility
+
+Today, 10:42 AM
+
+Use small supporting metadata.
+
+If multiple events are expandable, make the interaction obvious.
+
+==================================================
+14. ETA DESIGN
+==================================================
+
+ETA information should be highly scannable.
+
+Do not bury the delivery date inside a paragraph.
+
+Create a clear visual hierarchy.
+
+For example:
+
+ESTIMATED DELIVERY
+
+Wednesday, September 24
+
+Expected by 8:00 PM
+
+For delayed orders, clearly distinguish:
+
+Original estimate
+Updated estimate
+
+The date should be more prominent than the label.
+
+==================================================
+15. BUTTON & ACTION DESIGN
+==================================================
+
+Review every button.
+
+Primary actions should be obvious.
+
+Secondary actions should not compete with primary actions.
+
+Use:
+
+- Consistent height
+- Consistent radius
+- Good horizontal padding
+- Proper icon alignment
+- Strong hover state
+- Pressed state
+- Focus state
+
+Touch targets should be approximately 44px or larger.
+
+Avoid overly small text buttons on mobile.
+
+Do not use too many primary-colored buttons simultaneously.
+
+There should be a clear primary action.
+
+==================================================
+16. SUPPORT UX
+==================================================
+
+Review the support sheet/dialog.
+
+Make it feel like a real product interaction.
+
+Improve:
+
+- Header
+- Close button
+- Option spacing
+- Icons
+- Typography
+- Divider usage
+- Touch targets
+
+The user should immediately understand:
+
+"I need help with this order."
+
+Keep it simple.
+
+==================================================
+17. ORDER DETAILS SHEET
+==================================================
+
+Review the order-details bottom sheet.
+
+Make it feel polished on mobile.
+
+Important:
+
+- It should fit naturally inside the viewport.
+- It should scroll if necessary.
+- It should have clear section hierarchy.
+- The close action should be easy to find.
+- It should not feel like a desktop modal squeezed onto mobile.
+
+Use a bottom-sheet style interaction that feels natural for a mobile e-commerce application.
+
+==================================================
+18. ISSUE REPORT DIALOG
+==================================================
+
+Review the delivery issue interaction.
+
+Improve:
+
+- Radio option design
+- Selected state
+- Optional note field
+- Primary submit button
+- Confirmation state
+- Spacing
+
+The confirmation should feel believable.
+
+Do not make the interaction overly complicated.
+
+==================================================
+19. STATE SWITCHER
+==================================================
+
+The assessment requires the evaluator to inspect all three states.
+
+The state switcher is useful, but it should NOT visually dominate the customer experience.
+
+Keep it subtle.
+
+Consider a small:
+
+"Preview state"
+
+label followed by a compact control.
+
+Make selected/unselected states very clear.
+
+The evaluator should understand immediately how to switch states.
+
+==================================================
+20. LOADING STATE
+==================================================
+
+Review the skeleton loading state.
+
+Skeletons should visually correspond to the final layout.
+
+Avoid generic gray blocks that don't match the actual components.
+
+Make the loading state feel polished.
+
+If animation is used, keep it subtle.
+
+==================================================
+21. ERROR STATE
+==================================================
+
+Review the error state.
+
+It should clearly communicate:
+
+Something went wrong.
+
+Then provide:
+
+Try again
+
+and/or
+
+Contact support
+
+The error state should not look like a catastrophic system failure.
+
+Keep it consistent with the rest of the design system.
+
+==================================================
+22. COLOR SYSTEM
+==================================================
+
+Review the entire color palette.
+
+Use a restrained palette.
+
+Prefer:
+
+- Neutral background
+- White/near-white surfaces
+- Strong dark text
+- Muted secondary text
+- One primary brand/accent color
+- Semantic warning color
+- Semantic error color
+- Semantic success color
+
+Do not use many unrelated colors.
+
+Make sure contrast is accessible.
+
+Use color to reinforce hierarchy rather than decorate.
+
+==================================================
+23. TYPOGRAPHY
+==================================================
+
+Review every font size and weight.
+
+Establish a clear hierarchy.
+
+For example:
+
+Page title
+→ section heading
+→ status heading
+→ body
+→ metadata
+→ helper text
+
+Avoid:
+
+- Too many font sizes
+- Too many font weights
+- Tiny metadata
+- Excessively bold body text
+
+Typography should feel modern and calm.
+
+==================================================
+24. CARDS, BORDERS & SHADOWS
+==================================================
+
+Review all cards.
+
+Avoid putting every section inside a heavy card.
+
+Use a mixture of:
+
+- Content sections
+- Subtle containers
+- Dividers
+- Elevated cards where useful
+
+Shadows should be subtle.
+
+Borders should be light.
+
+Corner radii should be consistent across the application.
+
+Do not use excessive rounded corners everywhere.
+
+Create a coherent radius system.
+
+==================================================
+25. SPACING SYSTEM
+==================================================
+
+Normalize spacing throughout the application.
+
+Check:
+
+- Page padding
+- Card padding
+- Section gaps
+- Heading-to-body spacing
+- Icon-to-text spacing
+- Button spacing
+- Timeline spacing
+
+The page should have consistent vertical rhythm.
+
+If a section feels cramped, fix spacing.
+
+If the page feels unnecessarily long, tighten spacing.
+
+==================================================
+26. ICONOGRAPHY
+==================================================
+
+Continue using the existing icon system consistently.
+
+Review:
+
+- Icon sizes
+- Stroke weights
+- Icon containers
+- Alignment
+- Semantic meaning
+
+Do not use decorative icons that don't communicate anything.
+
+Make sure icon sizes are proportional to nearby text.
+
+==================================================
+27. RESPONSIVE DESKTOP REFINEMENT
+==================================================
+
+The mobile experience is primary, but desktop should also look intentional.
+
+At larger widths:
+
+- Use a controlled max-width
+- Avoid stretching content excessively
+- Maintain visual hierarchy
+- Use the two-column layout where appropriate
+- Keep the primary tracking information dominant
+- Ensure dialogs remain appropriately sized
+
+The desktop version should look like a responsive product, not a stretched mobile page.
+
+==================================================
+28. MICRO-INTERACTIONS
+==================================================
+
+Add/refine subtle interactions where appropriate:
+
+- Button hover
+- Button press
+- Timeline state transition
+- State switch transition
+- Sheet open/close
+- Dialog open/close
+- Expand/collapse
+- Toast appearance
+
+Animations should be:
+
+- Fast
+- Subtle
+- Purposeful
+
+Do not add animation simply for decoration.
+
+Respect prefers-reduced-motion.
+
+==================================================
+29. ACCESSIBILITY QA
+==================================================
+
+Review:
+
+- Keyboard navigation
+- Focus states
+- Button semantics
+- Icon labels
+- Dialog behavior
+- Escape handling
+- Contrast
+- Touch target size
+- Status communication
+
+Important information must not depend only on color.
+
+==================================================
+30. CONTENT QUALITY
+==================================================
+
+Review all visible copy.
+
+It should sound like a real e-commerce product.
+
+Avoid:
+
+- Lorem ipsum
+- Developer terminology
+- Awkward wording
+- Repetitive messages
+- Long paragraphs
+
+Keep copy concise and human.
+
+The user should not have to read a lot to understand their order.
+
+==================================================
+31. DO NOT BREAK EXISTING FUNCTIONALITY
+==================================================
+
+The current implementation already has:
+
+- Delayed state
+- Delivered-but-not-received state
+- Tracking-unavailable state
+- Normal out-for-delivery state
+- Loading state
+- Error state
+- State switcher
+- Order details
+- Support sheet
+- Issue reporting
+- Toast feedback
+
+Preserve all of these.
+
+Do not remove working functionality while improving the visuals.
+
+After modifications, verify every interaction again.
+
+==================================================
+32. FINAL VISUAL QA CHECKLIST
+==================================================
+
+Before finishing, inspect the actual rendered UI and verify:
+
+MOBILE:
+
+[ ] 360px looks polished
+[ ] 375px looks polished
+[ ] 390px looks polished
+[ ] 414px looks polished
+[ ] 430px looks polished
+[ ] No horizontal overflow
+[ ] No clipped text
+[ ] No overlapping elements
+[ ] Buttons have comfortable touch targets
+[ ] Bottom sheets work naturally
+[ ] Timeline is readable
+[ ] Status hero has strong hierarchy
+
+DESKTOP:
+
+[ ] 768px works
+[ ] 1024px works
+[ ] 1440px works
+[ ] Content doesn't become excessively wide
+[ ] Desktop composition feels intentional
+
+STATES:
+
+[ ] Normal state
+[ ] Delayed state
+[ ] Delivered but not received
+[ ] Tracking unavailable
+[ ] Loading
+[ ] Error
+
+VISUAL:
+
+[ ] Consistent spacing
+[ ] Consistent typography
+[ ] Consistent colors
+[ ] Consistent icons
+[ ] Consistent borders/radii
+[ ] Subtle shadows
+[ ] Clear hierarchy
+[ ] Professional visual polish
+
+INTERACTIONS:
+
+[ ] State switching
+[ ] Order details
+[ ] Support
+[ ] Delivery issue
+[ ] Toast/confirmation
+[ ] Retry
+[ ] Expand/collapse
+[ ] Dialog/sheet closing
+
+==================================================
+33. IMPORTANT — DON'T OVERDESIGN
+==================================================
+
+The goal is NOT to add more UI.
+
+The goal is to make the EXISTING UI better.
+
+If something is unnecessary, simplify it.
+
+If two elements compete visually, establish hierarchy.
+
+If the screen feels crowded, reduce visual noise.
+
+If a section doesn't help the customer understand their order, simplify it.
+
+Favor:
+
+Clarity > decoration
+Hierarchy > density
+Consistency > novelty
+Usability > visual tricks
+Production quality > flashy effects
+
+==================================================
+34. FINAL VALIDATION
+==================================================
+
+After making all improvements:
+
+Run:
+
+- npm run build
+- npm run lint
+- npm run dev
+
+Fix every error or warning caused by your changes.
+
+Verify the application returns successfully.
+
+Do not stop at explaining what you changed.
+
+Actually make the changes in the project.
+
+At the end, provide:
+
+1. Short summary of visual/UX improvements
+2. Files changed
+3. Validation results
+4. Any remaining issue, if there genuinely is one
+
+Most importantly:
+
+MAKE THE ACTUAL UI BETTER.
+
+Do not just tell me what could be improved.
+
+
+
+
+
+
+
+
+
+
+
+PROMPT 03 — FINAL ASSESSMENT READINESS AUDIT
+
+The implementation and visual QA are now complete.
+
+Do NOT redesign the UI.
+Do NOT add new features.
+Do NOT change the existing visual design unless you find a genuine submission-blocking issue.
+
+Perform one final assessment-readiness audit of the project.
+
+==================================================
+1. ASSESSMENT REQUIREMENTS AUDIT
+==================================================
+
+Verify that the final implementation satisfies the original assessment requirements:
+
+- Modern professional mobile Order Tracking screen
+- Clear visual delivery progress/timeline
+- Current order status
+- Estimated delivery date/time
+- Order/product summary
+- Clear support/contact path
+- Loading state
+- Error state
+- Delayed Order state
+- Delivered but Not Received state
+- Tracking Not Available Yet state
+- Meaningful next steps for each special state
+- Responsive design for approximately 360–430px
+- Clean spacing
+- Typography hierarchy
+- Visual consistency
+- Meaningful interactions
+- View order details
+- Contact support
+- Report delivery issue
+- Same product experience adapting to all three required states
+
+Do not modify working functionality unnecessarily.
+
+==================================================
+2. CODE QUALITY AUDIT
+==================================================
+
+Inspect the source code for:
+
+- Broken imports
+- Dead code
+- Unused variables
+- Unused dependencies
+- Obvious duplicated logic
+- Temporary debugging code
+- console.log statements
+- TODO/FIXME placeholders
+- Hardcoded development-only behavior that should not remain
+- Obvious TypeScript issues
+- Accessibility issues that can be fixed safely
+
+Make only safe cleanup changes.
+
+Do not refactor working architecture merely for the sake of refactoring.
+
+==================================================
+3. PACKAGE / PROJECT CLEANUP
+==================================================
+
+Inspect package.json and project configuration.
+
+Make sure:
+
+- package.json has correct scripts
+- npm install works
+- npm run dev works
+- npm run build works
+- npm run lint works
+- No unnecessary dependency was added
+- No broken configuration remains
+
+Do not introduce additional frameworks or libraries.
+
+==================================================
+4. README
+==================================================
+
+Create or improve a concise professional README.md suitable for GitHub.
+
+It should include:
+
+# Order Tracking Screen
+
+A short description of the project.
+
+## Features
+
+Mention:
+
+- Responsive mobile-first order tracking
+- Delivery timeline
+- Delayed order state
+- Delivered but not received state
+- Tracking unavailable state
+- Loading and error states
+- Order details
+- Support interaction
+- Delivery issue reporting
+- Mock/static data
+
+## Tech Stack
+
+Mention the actual technologies used by the project.
+
+For example:
+
+- React
+- TypeScript
+- Vite
+- Lucide React
+- CSS
+
+Only mention technologies that are actually present.
+
+## Getting Started
+
+Provide concise commands:
+
+npm install
+
+npm run dev
+
+## Build
+
+npm run build
+
+## Lint
+
+npm run lint
+
+## Assessment Notes
+
+Briefly explain that the application uses mock/static data because backend integration is not required for the assessment.
+
+Do not include unnecessary long documentation.
+
+==================================================
+5. GITHUB READINESS
+==================================================
+
+Make sure the repository is clean and suitable for submission.
+
+Check:
+
+- README.md exists
+- package.json exists
+- source files are included
+- no unnecessary build artifacts are committed
+- node_modules should not be committed
+- .gitignore is appropriate
+- no secrets/API keys exist
+- no personal credentials exist
+- no unnecessary temporary files exist
+
+If a .gitignore is missing or incomplete, create/update it appropriately.
+
+==================================================
+6. DEPLOYMENT READINESS
+==================================================
+
+Inspect the project and determine whether it is ready for deployment to a static frontend hosting provider such as:
+
+- Vercel
+- Netlify
+- GitHub Pages
+
+Do NOT deploy anything yourself unless the necessary authenticated deployment tools are already configured and explicitly available.
+
+Instead, verify that the project can be deployed as a normal Vite frontend.
+
+Check:
+
+- production build succeeds
+- assets use appropriate paths
+- no backend is required
+- no localhost dependency remains
+- no environment variables are required for the UI
+- SPA routing will not cause an issue if applicable
+
+If the current implementation uses only a single page and does not require client-side routing, do not add routing just for deployment.
+
+==================================================
+7. FINAL VALIDATION
+==================================================
+
+Run:
+
+npm install
+
+npm run build
+
+npm run lint
+
+Run the development server if practical and verify that it returns successfully.
+
+Check for:
+
+- Build errors
+- TypeScript errors
+- Lint errors
+- Console errors
+- Broken imports
+- Missing assets
+
+Do not finish until the project is in a clean submission-ready state.
+
+==================================================
+8. FINAL RESPONSE
+==================================================
+
+After completing the audit, report:
+
+1. Whether the assessment requirements are satisfied
+2. Files changed
+3. Build result
+4. Lint result
+5. Deployment readiness
+6. README status
+7. Any remaining genuine issue
+
+Do NOT claim that the application has been deployed unless it actually has been deployed successfully.
+
+Do NOT invent a GitHub URL or deployment URL.
+
+The goal of this final pass is simply to make the existing project clean, documented, and ready for GitHub + deployment submission.
+
+Do not redesign the application.
